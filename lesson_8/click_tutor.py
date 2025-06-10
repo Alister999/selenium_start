@@ -1,10 +1,14 @@
 import inspect
+import os
 import time
+from dotenv import load_dotenv
 
 from  selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 # from selenium.webdriver.common.by import By
+
+load_dotenv()
 
 service = Service(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
@@ -22,12 +26,12 @@ time.sleep(2)
 windows = driver.window_handles
 driver.switch_to.window(windows[-1])
 
-expected_login = "dr.borgaw@icloud.com"
-expected_password = "Avesatan99!"
+expected_login = os.getenv("LOGIN")
+expected_password = os.getenv("PASS")
 
 
-login_field = driver.find_element("xpath", '//input[@name="ws-input_2025-06-07" and @type="text"]')
-passw_field = driver.find_element("xpath", '//input[@name="ws-input_2025-06-07" and @type="password"]')
+login_field = driver.find_element("xpath", '//input[@name="ws-input_2025-06-10" and @type="text"]')
+passw_field = driver.find_element("xpath", '//input[@name="ws-input_2025-06-10" and @type="password"]')
 send_btn = driver.find_element("xpath", '//span[@class="controls-BaseButton__wrapper controls-Button__wrapper_viewMode-filled controls-BaseButton__wrapper_captionPosition_end controls-Button_textAlign-center"]')
 # send_btn2 = driver.find_element("xpath", '//span[@class="controls-BaseButton__wrapper controls-Button__wrapper_viewMode-filled controls-BaseButton__wrapper_captionPosition_end controls-Button_textAlign-center"]')
 

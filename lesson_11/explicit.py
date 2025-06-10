@@ -1,4 +1,5 @@
 import inspect
+import os
 import time
 
 from  selenium import webdriver
@@ -37,8 +38,8 @@ start_job_btn.click()
 # print("All OK")
 # time.sleep(2)
 
-expected_login = "dr.borgaw@icloud.com"
-expected_password = "Avesatan99!"
+expected_login = os.getenv("LOGIN")
+expected_password = os.getenv("PASS")
 
 LOGIN_FIELD = ("xpath", '//input[@name="ws-input_2025-06-07" and @type="text"]')
 PASS_FIELD = ("xpath", '//input[@name="ws-input_2025-06-07" and @type="password"]')

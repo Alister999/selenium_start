@@ -1,4 +1,5 @@
 import inspect
+import os
 import time
 
 from selenium import webdriver
@@ -20,8 +21,8 @@ time.sleep(2)
 windows = driver.window_handles
 driver.switch_to.window(windows[-1])
 
-expected_login = "dr.borgaw@icloud.com"
-expected_password = "Avesatan99!"
+expected_login = os.getenv("LOGIN")
+expected_password = os.getenv("PASS")
 
 
 login_field = driver.find_element("xpath", '//input[@name="ws-input_2025-06-07" and @type="text"]')

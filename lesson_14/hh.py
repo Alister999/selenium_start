@@ -35,8 +35,7 @@ driver.get(expected_url)
 # wait.until(EC.visibility_of_element_located(MAIL))
 # wait.until(EC.element_to_be_clickable(MAIL)).click()
 # wait.until(EC.visibility_of_element_located(INPUT_FIELD))
-# wait.until(EC.element_to_be_clickable(INPUT_FIELD)).send_keys("dr.borgaw@icloud.com")
-#
+# wait.until(EC.element_to_be_clickable(INPUT_FIELD)).send_keys(os.getenv("LOGIN"))
 #
 # wait.until(EC.visibility_of_element_located(LOGIN_BTN_3))
 # wait.until(EC.element_to_be_clickable(LOGIN_BTN_3)).click()
